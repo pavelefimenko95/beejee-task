@@ -1,0 +1,24 @@
+.button
+  border-radius: 30px
+  border: 1px solid
+  padding: 11px 30px
+  font-size: 15px
+  cursor: pointer
+  transition: all .1s ease
+  outline: none
+
+  a
+    text-transform: none
+
+  &--dark
+    color: $white
+    border-color: $black-light
+    background-color: $black
+
+    &:hover
+      background-color: lighten($black, 5%)
+
+  &--light
+    color: $black
+    border-color: $black
+    background-color: $white
