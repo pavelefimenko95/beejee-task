@@ -1,7 +1,8 @@
 import * as constants from '../constants/actions/tasks';
 
 const initialState = {
-    tasksList: []
+    tasksList: [],
+    totalTasksCount: null
 };
 
 export default (state = initialState, action) => {
@@ -9,12 +10,13 @@ export default (state = initialState, action) => {
         case constants.LOAD_TASKS:
             return {
                 ...state,
-                tasksList: action.payload.tasksList
+                tasksList: action.payload.tasksList,
+                totalTasksCount: action.payload.totalTasksCount
             };
-        case constants.CREATE_TASK:
+        case constants.EDIT_TASK:
             return {
                 ...state,
-                tasksList: [...state.tasksList, action.payload.task]
+                tasksList: state.tasksList.map(task => task.id === action.payload.task.id ? action.payload.task : task)
             };
         default:
             return state;
